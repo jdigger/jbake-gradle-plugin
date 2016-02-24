@@ -1,20 +1,13 @@
 package me.champeau.gradle
 
-import org.gradle.api.Project
-import org.gradle.testfixtures.ProjectBuilder
-import spock.lang.Specification
+import nebula.test.PluginProjectSpec
 import spock.lang.Unroll
 
-/**
- * Created by frank on 03.10.14.
- */
-class JBakePluginSpec extends Specification {
+class JBakePluginSpec extends PluginProjectSpec {
 
     public static final String PLUGIN_ID = 'me.champeau.jbake'
-    Project project
 
     def setup(){
-        project = ProjectBuilder.builder().build()
         project.apply plugin: PLUGIN_ID
     }
 
@@ -152,4 +145,8 @@ class JBakePluginSpec extends Specification {
         project.tasks.jbake.configuration['render.tags'] == false
     }
 
+    @Override
+    String getPluginName() {
+        return PLUGIN_ID
+    }
 }
