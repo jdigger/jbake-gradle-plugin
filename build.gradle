@@ -41,3 +41,6 @@ task groovydocJar(type: Jar, dependsOn: groovydoc) {
     from groovydoc.destinationDir
 }
 
+wrapper {
+    gradleVersion = 2.11
+}
